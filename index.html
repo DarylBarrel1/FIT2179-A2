@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"  content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Does Better Healthcare Mean Longer Lives?</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <section class="landing">
+    <div>
+      <div class="top-header">Healthcare &amp; Life Expectancy</div>
+      <h1 class="title">Where you live<br>shapes <em>How Long</em><br>you live.</h1>
+      <p class="sub-title">Across Australia and Southeast Asia, access to hospitals, doctors and healthcare funding varies dramatically. This visualisation explores how healthcare investment effects the local life expectancy.</p>
+      <div class="hero-meta">
+        <span class="meta-chip">5 countries</span>
+        <span class="meta-chip">6 states &amp; territories</span>
+      </div>
+    </div>
+    <div class="au-stats">
+      <div class="hstat">
+        <div class="hstat-num" style="color:rgb(7, 7, 142)">83.4 <span class="hstat-unit">yrs</span></div>
+        <div class="hstat-desc">Average life expectancy in Australia — one of the highest in the world</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num" style="color:rgb(255, 85, 0)">75.0 <span class="hstat-unit">yrs</span></div>
+        <div class="hstat-desc">Life expectancy in the Northern Territory — the lowest of any Australian state or territory</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">8.4 <span class="hstat-unit">yrs</span></div>
+        <div class="hstat-desc">The gap in life expectancy between Australia's best and worst performing states</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-band">
+    <div class="band-tag">Part 01 — Australia</div>
+    <div class="band-hed">Not all Australians have equal access to hospitals</div>
+  </div>
+
+  <div class="body-grid">
+    <aside class="sidebar">
+      <p class="lede">Australia's healthcare system is world-class on average. But averages hide a troubling reality. Hospital resources are not evenly spread and those gaps quietly shape how long people live.</p>
+     
+      <p class="lede">The map shows hospital bed density across Australia. The bar chart ranks states by life expectancy. The scatter plot reveals a surprising pattern and explains why the NT breaks all expectations.</p>
+      <div class="mini-stats">
+        <div class="mstat">
+          <div class="mstat-n" style="color:rgb(7, 7, 142)">4.1</div>
+          <div class="mstat-l">NT beds per 1,000 — highest rate, most remote</div>
+        </div>
+        <div class="mstat">
+          <div class="mstat-n" style="color:rgb(255, 85, 0)">2.33</div>
+          <div class="mstat-l">VIC beds per 1,000 — lowest rate</div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="charts-col">
+      <div class="chart-block">
+        <div class="chart-header">
+          <span class="chart-title">Graph 1 — Hospital beds per 1,000 people by Australian state and territory (2023 - 24)</span>
+          <span class="chart-source">AIHW Hospital Resources 2023 - 24</span>
+        </div>
+        <div class="chart-inner" id="chart1"></div>
+      </div>
+      <div class="chart-half-row">
+        <div class="chart-half chart-block">
+          <div class="chart-header">
+            <span class="chart-title">Graph 2 — Life expectancy by state and territory</span>
+            <span class="chart-source">AIHW</span>
+          </div>
+          <div class="chart-inner" id="chart2"></div>
+        </div>
+        <div class="chart-half chart-block">
+          <div class="chart-header">
+            <span class="chart-title">Graph 3 — Hospital beds vs life expectancy</span>
+            <span class="chart-source">AIHW 2023 - 24</span>
+          </div>
+          <div class="chart-inner" id="chart3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="footer-sources">Sources: AIHW Hospital Resources 2023 - 24 · Our World in Data / WHO Global Health Observatory · World Bank</div>
+    <div class="footer-author">FIT2179 Data Visualisation 2 · Monash University · 2026</div>
+  </footer>
+
+  </body>
+</html>
