@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible"  content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Does Better Healthcare Mean Longer Lives?</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-
   <script src="script.js"></script>
 </head>
 
@@ -19,20 +17,16 @@
     <div>
       <div class="top-header">Healthcare &amp; Life Expectancy</div>
       <h1 class="title">Where you live<br>shapes <em>How Long</em><br>you live.</h1>
-      <p class="sub-title">Across Australia and Southeast Asia, access to hospitals, doctors and healthcare funding varies dramatically. This visualisation explores how healthcare investment effects the local life expectancy.</p>
-      <div class="hero-meta">
-        <span class="meta-chip">5 countries</span>
-        <span class="meta-chip">6 states &amp; territories</span>
-      </div>
+      <p class="sub-title">Across Australia and Southeast Asia, access to hospitals, doctors and healthcare funding varies dramatically. This visualisation explores how healthcare investment affects local life expectancy.</p>
     </div>
     <div class="au-stats">
       <div class="hstat">
-        <div class="hstat-num" style="color:rgb(7, 7, 142)">83.4 <span class="hstat-unit">yrs</span></div>
-        <div class="hstat-desc">Average life expectancy in Australia — one of the highest in the world</div>
+        <div class="hstat-num" style="color:#185FA5">83.4 <span class="hstat-unit">yrs</span></div>
+        <div class="hstat-desc">Average life expectancy in Australia is one of the highest in the world</div>
       </div>
       <div class="hstat">
-        <div class="hstat-num" style="color:rgb(255, 85, 0)">75.0 <span class="hstat-unit">yrs</span></div>
-        <div class="hstat-desc">Life expectancy in the Northern Territory — the lowest of any Australian state or territory</div>
+        <div class="hstat-num" style="color:#D85A30">75.0 <span class="hstat-unit">yrs</span></div>
+        <div class="hstat-desc">Life expectancy in the Northern Territory is the lowest of any Australian state or territory</div>
       </div>
       <div class="hstat">
         <div class="hstat-num">8.4 <span class="hstat-unit">yrs</span></div>
@@ -41,23 +35,24 @@
     </div>
   </section>
 
+  <!-- PART 1 BAND -->
   <div class="section-band">
     <div class="band-tag">Part 01 — Australia</div>
     <div class="band-hed">Not all Australians have equal access to hospitals</div>
   </div>
 
+  <!-- PART 1 BODY -->
   <div class="body-grid">
     <aside class="sidebar">
       <p class="lede">Australia's healthcare system is world-class on average. But averages hide a troubling reality. Hospital resources are not evenly spread and those gaps quietly shape how long people live.</p>
-     
-      <p class="lede">The map shows hospital bed density across Australia. The bar chart ranks states by life expectancy. The scatter plot reveals a surprising pattern and explains why the NT breaks all expectations.</p>
+      <p class="lede">The map shows hospital bed density across Australia. The line charts below reveal how health investment and workforce have grown over time.</p>
       <div class="mini-stats">
         <div class="mstat">
-          <div class="mstat-n" style="color:rgb(7, 7, 142)">4.1</div>
+          <div class="mstat-n" style="color:#185FA5">4.1</div>
           <div class="mstat-l">NT beds per 1,000 — highest rate, most remote</div>
         </div>
         <div class="mstat">
-          <div class="mstat-n" style="color:rgb(255, 85, 0)">2.33</div>
+          <div class="mstat-n" style="color:#D85A30">2.33</div>
           <div class="mstat-l">VIC beds per 1,000 — lowest rate</div>
         </div>
       </div>
@@ -74,15 +69,15 @@
       <div class="chart-half-row">
         <div class="chart-half chart-block">
           <div class="chart-header">
-            <span class="chart-title">Graph 2 — Life expectancy by state and territory</span>
-            <span class="chart-source">AIHW</span>
+            <span class="chart-title">Graph 2 — Health expenditure per capita over time in Australia</span>
+            <span class="chart-source">Our World in Data (1970 - 2024)</span>
           </div>
           <div class="chart-inner" id="chart2"></div>
         </div>
         <div class="chart-half chart-block">
           <div class="chart-header">
-            <span class="chart-title">Graph 3 — Hospital beds vs life expectancy</span>
-            <span class="chart-source">AIHW 2023 - 24</span>
+            <span class="chart-title">Graph 3 — Physicians per 1,000 people over time in Australia</span>
+            <span class="chart-source">Our World in Data (1970 - 2022)</span>
           </div>
           <div class="chart-inner" id="chart3"></div>
         </div>
@@ -90,11 +85,126 @@
     </div>
   </div>
 
+  <div class="section-band">
+    <div class="band-tag2">Part 02 — Southeast Asia</div>
+    <div class="band-hed">A region of stark contrasts in healthcare and longevity</div>
+  </div>
+
+  <div class="sea-intro">
+    <div class="sea-intro-text">
+      <p class="text-content">Southeast Asia is one of the most diverse regions in the world, not just culturally, but in how its people access healthcare. From Singapore's world-class hospitals to the Philippines' stretched public system, the gap between the best and worst resourced countries is stark. Understanding these differences is the first step to understanding why life expectancy varies so dramatically across the region.</p>
+    </div>
+  </div>
+
+  <div class="sea-half-row">
+    <div class="sea-half chart-block">
+      <div class="chart-header">
+        <span class="chart-title">Graph 4 — Hospital beds per 1,000 people across Southeast Asia and Australia</span>
+        <span class="chart-source">Our World in Data / WHO</span>
+      </div>
+      <div class="chart-inner" id="chart4"></div>
+    </div>
+    <div class="sea-half chart-block">
+      <div class="chart-header">
+        <span class="chart-title">Graph 5 — Hospital beds by country (latest available)</span>
+        <span class="chart-source">Our World in Data / WHO</span>
+      </div>
+      <div class="chart-inner" id="chart5"></div>
+    </div>
+  </div>
+
+  <!-- ROW 2: GRAPH 6 full width -->
+  <div class="chart-block sea-full-chart">
+    <div class="chart-header">
+      <span class="chart-title">Graph 6 — Life expectancy overtime</span>
+      <span class="chart-source">Our World in Data / WHO</span>
+    </div>
+    <div class="chart-inner" id="chart6"></div>
+  </div>
+
+  <div class="text-wrap">
+    <p class="text-content">The relationship between public health spending and life expectancy is telling but it is not simple. Countries that dedicate a higher share of their budget to healthcare generally see longer lives, but Singapore is a notable exception: it spends less publicly than Australia yet achieves comparable life expectancy. This suggests that how a country spends its healthcare budget and how efficiently its system delivers care matters just as much as how much it spends.</p>
+  </div>
+
+  <div class="sea-half-row" style="border-top: 0.5px solid #e0e0dc;">
+    <div class="sea-half chart-block">
+      <div class="chart-header">
+        <span class="chart-title">Graph 7 — Physicians per 1,000 by country</span>
+        <span class="chart-source">Our World in Data / WHO</span>
+      </div>
+      <div class="chart-inner" id="chart7"></div>
+    </div>
+    <div class="sea-half chart-block">
+      <div class="chart-header">
+        <span class="chart-title">Graph 8 — Life expectancy vs Public Health Expenditure</span>
+        <span class="chart-source">Our World in Data / WHO</span>
+      </div>
+      <div class="chart-inner" id="chart8"></div>
+    </div>
+  </div>
+
+  <div class="text-sub-wrap">
+    <p class="text-content">Across Southeast Asia, the story of healthcare is one of gradual but uneven progress. Every country in the region has improved its life expectancy since 1970, a testament to decades of investment in better nutrition, sanitation, vaccination and medical access. Yet the gains have not been equal. Singapore has pulled far ahead, building a healthcare system that rivals the best in the world. Meanwhile, countries like the Philippines and Indonesia with populations in the tens of millions spread across thousands of islands continue to struggle with critical shortages of doctors, hospitals and funding. With fewer than two physicians per 1,000 people, millions of patients in these countries face long distances, long waits and limited options when they fall ill. The challenge for Southeast Asia is not just economic, it is structural. Building the infrastructure, training the workforce and funding the systems needed to close these gaps will take decades of sustained commitment.</p>
+  </div>
+
+  <div class="section-band">
+    <div class="band-tag3">Part 03 — The Connection</div>
+    <div class="band-hed">Does investing more in healthcare actually save lives?</div>
+  </div>
+ 
+  <div class="part3-grid">
+    <div class="part3-charts">
+      <div class="sea-half-row">
+        <div class="sea-half chart-block">
+          <div class="chart-header">
+            <span class="chart-title">Graph 9 — Health spending vs life expectancy (bubble size = physicians per 1,000)</span>
+            <span class="chart-source">Our World in Data / WHO</span>
+          </div>
+          <div class="chart-inner" id="chart9"></div>
+        </div>
+        <div class="sea-half chart-block">
+          <div class="chart-header">
+            <span class="chart-title">Graph 10 — Life expectancy ranking across the region (2022)</span>
+            <span class="chart-source">Our World in Data / WHO</span>
+          </div>
+          <div class="chart-inner" id="chart10"></div>
+        </div>
+      </div>
+
+      <div class="text-sub-wrap">
+        <p class="text-content">The bubble chart makes it clear that countries with more doctors per person consistently achieve higher life expectancy. Australia and Singapore sit at the top which contrasts Philippines, where it is located on the opposing end with fewer physicians and lower spending and the shortest lives in the region. Additionally, the dot plot confirms the ranking, reinforcing our claim over the bubble chart.</p>
+      </div>
+
+      <div class="sea-half-row" style="border-top: 0.5px solid #e0e0dc;">
+        <div class="sea-half chart-block">
+          <div class="chart-header">
+            <span class="chart-title">Graph 11 — Life expectancy change from 2000 to 2022</span>
+            <span class="chart-source">Our World in Data / WHO</span>
+          </div>
+          <div class="chart-inner" id="chart11"></div>
+        </div>
+        <div class="sea-half chart-block">
+          <div class="chart-header">
+            <span class="chart-title">Graph 12 — Hospital Beds per 1,000 People vs Life Expectancy</span>
+            <span class="chart-source">Our World in Data / WHO</span>
+          </div>
+          <div class="chart-inner" id="chart12"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="conclusion">
+    <div class="conclusion-inner">
+      <p class="conclusion-text">The data tells a clear story: countries that invest more in healthcare — both in infrastructure and workforce — tend to have longer-living populations. But the relationship is not perfectly linear. Singapore demonstrates that <strong>efficiency and quality of care</strong> matter as much as raw spending. Australia leads the region not just because it spends more, but because it has built a system that delivers care equitably across a vast geography.</p>
+      <p class="conclusion-text">For Southeast Asia, the challenge is not simply spending more — it is spending better, and ensuring that investment reaches the communities that need it most.</p>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-sources">Sources: AIHW Hospital Resources 2023 - 24 · Our World in Data / WHO Global Health Observatory · World Bank</div>
     <div class="footer-author">FIT2179 Data Visualisation 2 · Monash University · 2026</div>
   </footer>
 
-  </body>
+</body>
 </html>
