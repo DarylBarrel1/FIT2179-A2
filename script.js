@@ -724,6 +724,20 @@ const spec10 = {
   ],
   layer: [
     {
+      mark: { type: "rule", color: "#e0e0dc", strokeWidth: 2 },
+      encoding: {
+        x: { 
+          field: "Life expectancy", type: "quantitative",
+          scale: { domain: [65, 86] }
+        },
+        x2: { datum: 65 },
+        y: {
+          field: "Entity", type: "nominal",
+          sort: { field: "Life expectancy", order: "descending" }
+        }
+      }
+    },
+    {
       mark: { type: "point", filled: true, size: 120, opacity: 0.9 },
       encoding: {
         x: {
@@ -748,31 +762,17 @@ const spec10 = {
       }
     },
     {
-      mark: { type: "text", align: "left", dx: 8, fontSize: 10 },
-      encoding: {
-        x: { field: "Life expectancy", type: "quantitative" },
-        y: {
-          field: "Entity", type: "nominal",
-          sort: { field: "Life expectancy", order: "descending" }
-        },
-        text: { field: "Life expectancy", format: ".1f" },
-        color: {
-          condition: { test: "datum.Entity === 'Australia'", value: "#185FA5" },
-          value: "#555"
-        }
-      }
-    },
-    // Annotation
-    {
       data: { values: [{}] },
       mark: { type: "text", align: "left", baseline: "bottom", fontSize: 14, fontStyle: "italic", color: "#555" },
       encoding: {
-        x: { value: 20 },
-        y: { value: 20 },
+        x: { value: 250 },
+        y: { value: 270 },
         text: { value: [
-          "Singapore is narrowly above Australia as the highest life-expectency",
-          "nation in the region, while the Philippines trails far behind reflecting",
-          "decades of underinvestment in healthcare infrastructure and workforce."
+          "Singapore is narrowly above Australia as the",
+          "highest life-expectency nation in the region,",
+          "while the Philippines trails far behind reflecting",
+          "decades of underinvestment in healthcare",
+          "infrastructure and workforce."
         ]}
       }
     }
