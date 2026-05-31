@@ -724,7 +724,7 @@ const spec10 = {
   ],
   layer: [
     {
-      mark: { type: "rule", color: "#e0e0dc", strokeWidth: 2 },
+      mark: { type: "line", color: "#9c9c9c", strokeWidth: 2 },
       encoding: {
         x: { 
           field: "Life expectancy", type: "quantitative",
