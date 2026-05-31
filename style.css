@@ -60,11 +60,11 @@ body {
 
 .hstat {
   padding: 1.25rem 0;
-  border-top: 0.5px solid #e0e0dc;
+  border-top: 1px solid #e0e0dc;
 }
 
 .hstat:last-child {
-  border-bottom: 0.5px solid #e0e0dc;
+  border-bottom: 1px solid #e0e0dc;
 }
 
 .hstat-num {
@@ -155,12 +155,12 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 420px 1fr;
-  border-bottom: 0.5px solid #e0e0dc;
+  border-bottom: 1px solid #e0e0dc;
 }
 
 .sidebar {
   padding: 2.5rem 2rem;
-  border-right: 0.5px solid #e0e0dc;
+  border-right: 1px solid #e0e0dc;
 }
 
 /* .text-wrap {
@@ -225,7 +225,7 @@ body {
 }
 
 .chart-block {
-  border-bottom: 0.5px solid #e0e0dc;
+  border-bottom: 1px solid #e0e0dc;
   min-width: 0;
 }
 
@@ -241,7 +241,7 @@ body {
 }
 
 .chart-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: #1a1a1a;
 }
@@ -273,7 +273,7 @@ body {
 }
 
 .chart-half {
-  border-right: 0.5px solid #e0e0dc;
+  border-right: 1px solid #e0e0dc;
   min-width: 0;
 }
 
@@ -303,14 +303,19 @@ footer {
   color: #888;
 }
 
-/* -- RESPONSIVE -- */
-@media (max-width: 860px) {
-  .landing { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem 2.5rem; }
-  .body-grid { grid-template-columns: 1fr; }
-  .sidebar { border-right: none; border-bottom: 0.5px solid #e0e0dc; }
-  .chart-half-row { grid-template-columns: 1fr; }
-  .chart-half { border-right: none; border-bottom: 0.5px solid #e0e0dc; }
-  nav { padding: 0.875rem 1.5rem; }
+.footer-source-row {
+  margin-bottom: 12px;
+}
+
+.footer-source-row:last-child {
+  margin-bottom: 0;
+}
+
+.part1-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #555;
+  margin-bottom: 2rem;
 }
 
 /* -- PART 2 INTRO -- */
@@ -343,7 +348,7 @@ footer {
 }
 
 .sea-half {
-  border-right: 0.5px solid #e0e0dc;
+  border-right: 1px solid #e0e0dc;
   min-width: 0;
 }
 

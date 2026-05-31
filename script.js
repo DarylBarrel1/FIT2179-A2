@@ -126,8 +126,8 @@ const spec2 = {
         align: "left",
         color: "#f7f6f3",
         opacity: 0.85,
-        width: 230,
-        height: 90
+        width: 220,
+        height: 85
       },
       encoding: {
         x: { field: "x", type: "quantitative" },
@@ -167,7 +167,44 @@ const spec3 = {
     { filter: "datum.Year >= 1970" }
   ],
   layer: [
-    { mark: { type: "line", point: true, color: "#1D9E75" } }
+    { mark: { type: "line", point: true, color: "#1D9E75" } },
+    {
+      transform: [{ filter: "datum.Year === 2022" }],
+      mark: {
+        type: "text",
+        align: "left",
+        dx: -100,
+        dy: -10,
+        fontSize: 11,
+        fontStyle: "italic",
+        color: "#1D9E75"
+      },
+      encoding: {
+        x: { field: "Year", type: "quantitative" },
+        y: { field: "Physicians (per 1,000 people)", type: "quantitative" },
+        text: { value: "4.1 per 1,000 (2022)" }
+      }
+    },
+    {
+      data: { values: [{}] },
+      mark: {
+        type: "text",
+        align: "left",
+        baseline: "bottom",
+        fontSize: 14,
+        fontStyle: "italic",
+        color: "#555"
+      },
+      encoding: {
+        x: { value: 5 },
+        y: { value: 40 },
+        text: { value: [
+          "Australia's physician workforce has",
+          "tripled since 1970, reflecting decades",
+          "of investment in medical training"
+        ]}
+      }
+    }
   ],
   encoding: {
     x: {
@@ -191,8 +228,8 @@ const spec3 = {
 const spec4 = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   width: "container",
-  height: 420,
-  projection: { type: "mercator", scale: 350, center: [115, -9] },
+  height: "container",
+  projection: { type: "mercator", scale: 340, center: [115, -9] },
   data: {
     url: "js/ne_10m_admin_0_countries_lakes.json",
     format: { type: "topojson", feature: "ne_10m_admin_0_countries_lakes" }
@@ -236,6 +273,25 @@ const spec4 = {
           { field: "properties.NAME", title: "Country", type: "nominal" },
           { field: "Hospital beds (per 1,000 people)", title: "Beds per 1,000", format: ".2f", type: "quantitative" }
         ]
+      }
+    },
+    {
+      data: { values: [{}] },
+      mark: {
+        type: "text",
+        align: "left",
+        baseline: "top",
+        fontSize: 14,
+        fontStyle: "italic",
+        color: "#333"
+      },
+      encoding: {
+        x: { value: 10 },
+        y: { value: 220 },
+        text: { value: [
+          "Gray countries lack recent OWID data which",
+          "may be a sign of weaker health reporting systems."
+        ]}
       }
     }
   ],
@@ -407,8 +463,8 @@ const spec6 = {
       mark: {
         type: "text",
         align: "left",
-        dx: -270,
-        dy: 20,
+        dx: -372,
+        dy: -30,
         fontSize: 14,
         fontStyle: "italic",
         color: "#D85A30"
@@ -440,27 +496,53 @@ const spec7 = {
     { filter: "datum.Year === 2021" },
     { filter: { field: "Entity", oneOf: SEA_COUNTRIES } }
   ],
-  mark: { type: "bar", cornerRadiusEnd: 3 },
-  encoding: {
-    y: {
-      field: "Physicians (per 1,000 people)", type: "quantitative",
-      title: "Physicians per 1,000 people",
-      axis: { titleFontSize: 16, labelFontSize: 14, gridColor: "#e0e0dc", grid: true }
+  layer: [
+    {
+      mark: { type: "bar", cornerRadiusEnd: 3 },
+      encoding: {
+        y: {
+          field: "Physicians (per 1,000 people)", type: "quantitative",
+          title: "Physicians per 1,000 people",
+          axis: { titleFontSize: 16, labelFontSize: 14, gridColor: "#e0e0dc", grid: true }
+        },
+        x: {
+          field: "Entity", type: "nominal", title: null, sort: "-y",
+          axis: { labelFontSize: 14, labelAngle: 45 }
+        },
+        color: {
+          condition: { test: "datum.Entity === 'Australia'", value: "#185FA5" },
+          value: "#1D9E75"
+        },
+        tooltip: [
+          { field: "Entity", title: "Country" },
+          { field: "Physicians (per 1,000 people)", title: "Physicians per 1,000", format: ".2f" }
+        ]
+      }
     },
-    x: {
-      field: "Entity", type: "nominal", title: null, sort: "-x",
-      axis: { labelFontSize: 14, labelAngle: 45 }
-    },
-    color: {
-      condition: { test: "datum.Entity === 'Australia'", value: "#185FA5" },
-      value: "#1D9E75"
-    },
-    tooltip: [
-      { field: "Entity", title: "Country" },
-      { field: "Physicians (per 1,000 people)", title: "Physicians per 1,000", format: ".2f" }
-    ]
-  },
-  config: { view: { stroke: null }, padding: { left: 40, right: 40, top: 10, bottom: 10 }}
+    {
+      data: { values: [{}] },
+      mark: {
+        type: "text",
+        align: "left",
+        baseline: "bottom",
+        fontSize: 14,
+        fontStyle: "italic",
+        color: "#555"
+      },
+      encoding: {
+        x: { value: 180 },
+        y: { value: 20 },
+        color: { value: "#555" },
+        text: { value: [
+          "Most SEA nations have fewer than 2 doctors per 1,000",
+          "people, falling well below the WHO recommended threshold.",
+          "Australia's workforce is more than double that of its",
+          "nearest SEA neighbour."
+        ]}
+      }
+    }
+  ],
+  config: { view: { stroke: null }, padding: { left: 40, right: 40, top: 10, bottom: 10 } }
 };
 
 const spec8 = {
@@ -472,16 +554,15 @@ const spec8 = {
   width: "container",
   height: "container",
   transform: [
-    { filter: "datum.Year >= 1970" },
+    { filter: "isValid(datum.Year) && datum.Year >= 1970" },
     { filter: { field: "Entity", oneOf: SEA_COUNTRIES } }
   ],
-  mark: { type: "line" },
   encoding: {
     x: {
-      field: "Year", type: "quantitative", title: "Year",
+      field: "Year", type: "quantitative",
       title: "Year",
       scale: { domain: [1970, 2024] },
-      axis: { titleFontSize: 16, labelFontSize: 11, format: "d", gridColor: "#e0e0dc" },
+      axis: { titleFontSize: 16, labelFontSize: 11, format: "d", gridColor: "#e0e0dc" }
     },
     y: {
       field: "Life expectancy", type: "quantitative",
@@ -499,6 +580,31 @@ const spec8 = {
       { field: "Life expectancy", title: "Life expectancy (yrs)", format: ".1f" }
     ]
   },
+  layer: [
+    { mark: { type: "line" } },
+    {
+      data: { values: [{}] },
+      mark: {
+        type: "text",
+        align: "right",
+        baseline: "bottom",
+        fontSize: 14,
+        fontStyle: "italic",
+        color: "#555"
+      },
+      encoding: {
+        x: { value: 1050 },
+        y: { value: 200 },
+        color: { value: "#555" },
+        text: { value: [
+          "The COVID-19 pandemic caused a measurable",
+          "decline in life expectancy across several",
+          "SEA nations in 2020 - 2021, creating",
+          "fluctuations and destabilisation."
+        ]}
+      }
+    }
+  ],
   config: { view: { stroke: null }, padding: { left: 50, right: 50, top: 10, bottom: 10 } }
 };
 
@@ -592,9 +698,11 @@ const spec9 = {
         x: { value: 20 },
         y: { value: 30 },
         text: { value: [
-          "Larger bubbles indicates more doctors are available for each person.",
-          "Countries with more physicians tend to live longer but spending alone",
-          "does not guarantee better outcomes."
+          "Larger bubbles indicates more doctors",
+          "are available for each person. Countries",
+          "with more physicians tend to live longer",
+          "but spending alone does not guarantee",
+          "better outcomes."
         ]}
       }
     }
@@ -751,7 +859,8 @@ const spec11 = {
         text: { value: [
           "Singapore gained the most (+5.1 yrs) since 2000.",
           "Philippines improved the least (+1.7 yrs).",
-          "Hence, the widening gap reflects persistent inequality."
+          "Hence, the widening gap reflects",
+          "persistent inequality."
         ]}
       }
     }
