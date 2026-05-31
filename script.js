@@ -798,8 +798,8 @@ const spec11 = {
       encoding: {
         x: {
           field: "Year", type: "ordinal",
-          title: null,
-          axis: { labelFontSize: 13, labelFontWeight: "bold", gridColor: "#e0e0dc" }
+          title: "Year",
+          axis: { titleFontSize: 16, labelFontSize: 11, labelFontWeight: "bold", gridColor: "#e0e0dc" }
         },
         y: {
           field: "Life expectancy", type: "quantitative",
@@ -826,7 +826,7 @@ const spec11 = {
         tooltip: [
           { field: "Entity", title: "Country" },
           { field: "Year", title: "Year" },
-          { field: "Life expectancy", title: "Life expectancy (yrs)", format: ".1f" }
+          { field: "Life expectancy", title: "Life expectancy (years)", format: ".1f" }
         ]
       }
     },
